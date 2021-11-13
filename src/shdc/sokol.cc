@@ -452,9 +452,10 @@ static void write_shader_desc_func(const program_t& prog, const args_t& args, co
             }
             L("  if (backend == {}) {{\n", sokol_backend(slang));
             L("    static sg_shader_desc desc;\n");
-            L("    static bool valid;\n");
-            L("    if (!valid) {{\n");
-            L("      valid = true;\n");
+            // L("    static bool valid;\n");
+            // L("    if (!valid) {{\n");
+            L("    {{\n");
+            // L("      valid = true;\n");
             write_shader_desc_init("      ", prog, inp, spirvcross[i], bytecode[i], slang);
             L("    }}\n");
             L("    return &desc;\n");
